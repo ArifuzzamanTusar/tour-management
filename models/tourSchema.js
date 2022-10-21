@@ -1,10 +1,6 @@
 const mongoose = require('mongoose');
 
 const tourSchema = mongoose.Schema({
-    name: { 
-        type: String, 
-        required: [true, 'Name filed is required'] 
-    },
     category: { 
         type: String, 
         required: [true, 'Category filed is required'], 
@@ -13,14 +9,20 @@ const tourSchema = mongoose.Schema({
             message: "category value can not be {VALUE}, must be silver/delux/gold"
         }
     },
-    viewers: { 
-        type: Number, 
-        default: 0 
+    name: { 
+        type: String, 
+        required: [true, 'Name filed is required'] 
     },
+  
+    
     price: { 
         type: Number, 
         required: [true, 'Price filed is required'],
         min: [0, 'Price can not be negative']
+    },
+    viewers: { 
+        type: Number, 
+        default: 0 
     },
 }, { timestamps: true });
 
